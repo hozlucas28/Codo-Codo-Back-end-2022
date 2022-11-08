@@ -13,7 +13,9 @@
 
 # -------------------------- Main Files and Folders -------------------------- #
 
+.project
 .metadata
+.classpath
 bin/
 tmp/
 *.tmp
@@ -24,6 +26,7 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+/target/
 
 
 # -------------------------- External Tools Builders ------------------------- #
