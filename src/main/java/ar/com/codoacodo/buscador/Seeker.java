@@ -1,17 +1,22 @@
 package ar.com.codoacodo.buscador;
 
 public class Seeker {
-	// Constructor
+	/* ------------------------------- Constructor ------------------------------ */
+
 	public Seeker() {
 		System.out.println("¡Nace un Buscador!");
 	}
 	
-	// Atributos
+
+	/* -------------------------------- Atributos ------------------------------- */
+
 	private String seekerKey; // Clave de búsqueda.
 	public Article[] results; // Resultados encontrados.
 	private int amountOfResults; // Cantidad de resultados encontrados.
 	
-	// Métodos
+
+	/* --------------------------------- Métodos -------------------------------- */
+	
 	public void setSeekerKey(String newKey) {
 		seekerKey = newKey;	
 	};
