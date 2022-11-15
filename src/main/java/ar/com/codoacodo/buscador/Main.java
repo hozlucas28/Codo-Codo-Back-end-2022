@@ -1,6 +1,6 @@
 package ar.com.codoacodo.buscador;
 
-public class HomeMain {
+public class Main {
 	public static void main(String[] args) {
 		Seeker mySeeker = new Seeker(); // Crea la clase 'Seeker'.
 		mySeeker.setSeekerKey("Iron Man 2"); // Define el atributo 'seekerKey' de la clase.

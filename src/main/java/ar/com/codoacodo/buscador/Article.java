@@ -1,18 +1,23 @@
 package ar.com.codoacodo.buscador;
 
 public class Article {
-	// Constructor
+	/* ------------------------------- Constructor ------------------------------ */
+
 	public Article() {
 		
 	}
 	
-	// Atributos
+	
+	/* -------------------------------- Atributos ------------------------------- */
+
 	private String image;
 	private String title;
 	private String author;
 	private float price;
 	
-	// Métodos
+
+	/* --------------------------------- Métodos -------------------------------- */
+
 	public void showData() {
 		System.out.println("• Imagen " + image);
 		System.out.println("• Título " + title);
