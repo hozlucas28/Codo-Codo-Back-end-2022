@@ -1,4 +1,4 @@
-package ar.com.codoacodo.buscador;
+package ar.com.codoacodo.seeker;
 
 public class Article {
 	/* ------------------------------- Constructor ------------------------------ */
