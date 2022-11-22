@@ -1,6 +1,8 @@
 package ar.com.codoacodo.interfaces.messenger;
 
 public class Messenger {
+	/* --------------------------------- Métodos -------------------------------- */
+	
 	public void sendEmail(String message) {
 		System.out.println("Email enviado con el mensaje: " + message);
 	}

@@ -1,9 +1,14 @@
 package ar.com.codoacodo.interfaces.messenger;
 
 public class UpdateDBImpl implements ISendMessage {
+	/* -------------------------------- Atributos ------------------------------- */
+
 	private String host = "MongoDB";
 	private String userName = "Lucas28";
 	private String password = "LucasHD2022";
+
+
+	/* --------------------------------- Métodos -------------------------------- */
 	
 	public void action(String message) {
 		System.out.println("• Host: " + host);

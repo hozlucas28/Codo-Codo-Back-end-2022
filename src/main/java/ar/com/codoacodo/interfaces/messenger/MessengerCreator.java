@@ -3,6 +3,7 @@ package ar.com.codoacodo.interfaces.messenger;
 public class MessengerCreator {
 	public static ISendMessage createMessenger(String target) {
 		ISendMessage message = null;
+		
 		switch (target) {
 			case "A":
 				message = new SendEmailImpl();
