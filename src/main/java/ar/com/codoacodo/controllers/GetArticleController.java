@@ -1,3 +1,14 @@
+/* --------------------------------------------------------------------------
+ * APUNTES:
+ * 		   Un método estático se utiliza cuando no se quiere instanciar un
+ *		   objeto de la clase, para ejecutar dicho método.
+ *
+ *
+ * IMPORTANTE:
+ *  			  - XXX.
+-------------------------------------------------------------------------- */
+
+
 package ar.com.codoacodo.controllers;
 
 import ar.com.codoacodo.dao.IArticleDAO;
