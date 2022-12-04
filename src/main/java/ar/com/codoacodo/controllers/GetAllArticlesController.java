@@ -1,14 +1,18 @@
 package ar.com.codoacodo.controllers;
 
+import java.util.List;
+
 import ar.com.codoacodo.dao.IArticleDAO;
 import ar.com.codoacodo.dao.impl.ArticleDAOMySQLImpl;
 import ar.com.codoacodo.domain.Article;
 
-public class GetArticleController {
+public class GetAllArticlesController {
 	public static void main(String[] args) throws Exception {
 		IArticleDAO dao = new ArticleDAOMySQLImpl();
-		Article article = dao.getElementById(1l);
+		List<Article> articles = dao.getAllArticles();
 
-		System.out.println(article.getAttributes());
+		for (Article i : articles) {
+			System.out.println(i.getAttributes());
+		}
 	}
 }

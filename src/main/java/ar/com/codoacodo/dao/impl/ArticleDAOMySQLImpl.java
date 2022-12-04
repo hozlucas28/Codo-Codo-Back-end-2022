@@ -13,32 +13,107 @@ package ar.com.codoacodo.dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 import ar.com.codoacodo.domain.Article;
 import ar.com.codoacodo.dao.IArticleDAO;
 import ar.com.codoacodo.db.ConnectionManager;
 
 public class ArticleDAOMySQLImpl implements IArticleDAO {
+	// Devolver artículo con la ID enviada.
 	public Article getElementById(Long id) throws Exception {
-
+		
 		// Establecer conexión
 		Connection connection = ConnectionManager.getConnection();
 		Statement statement = connection.createStatement();
 		
 		// Enviar consulta y obtener resultado
-		String query = "SELECT * FROM article WHERE id = " + id; // Consulta.
+		String query = "SELECT * FROM article WHERE id = " + id;
 		ResultSet resultSet = statement.executeQuery(query);
 		
-		// Extraer datos del registro (resultado obtenido)
+		// Extraer datos del resultado
+		Article article = null;
 		if (resultSet.next()) {
-			Long idDB = resultSet.getLong("id");
-			String titleDB = resultSet.getString("title");
-			String authorDB = resultSet.getString("author");
-			Float priceDB = resultSet.getFloat("price");
-			String imgDB = resultSet.getString("img");
-			return new Article(idDB, titleDB, authorDB, priceDB, imgDB);
+			article = fromResultSetToArticle(resultSet);
 		}
-		return null;
+		return article;
+	}
+
+
+	// Devolver todos los artículos.
+	public List<Article> getAllArticles() throws Exception {
+		Connection connection = ConnectionManager.getConnection();
+		Statement statement = connection.createStatement();
+
+		String query = "SELECT * FROM article";
+		ResultSet resultSet = statement.executeQuery(query);
+
+		List<Article> articles = new ArrayList<>();
+		while (resultSet.next()) {
+			articles.add(fromResultSetToArticle(resultSet));
+		}
+		return articles;
+	}
+
+
+	// Devolver artículo construido en base al resultado enviado.	
+	public Article fromResultSetToArticle(ResultSet resultSet) throws Exception {
+		Long idDB = resultSet.getLong("id");
+		String titleDB = resultSet.getString("title");
+		String authorDB = resultSet.getString("author");
+		Float priceDB = resultSet.getFloat("price");
+		String imageDB = resultSet.getString("image");
+		
+		return new Article(idDB, titleDB, authorDB, priceDB, imageDB);
+	}
+
+
+	// Crear artículo.
+	public void create(Article article) throws Exception {
+		Connection connection = ConnectionManager.getConnection();
+
+		String query = "INSERT INTO article(title, author, price, image) VALUES(?,?,?,?)"; // Consulta.		
+		PreparedStatement statement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+		
+		// Definir y ejecutar consulta
+		statement.setString(1, article.getTitle());
+		statement.setString(2, article.getAuthor());
+		statement.setFloat(3, article.getPrice());
+		statement.setString(4, article.getImage());
+		statement.execute();
+
+		// Definir ID del nuevo artículo		
+		ResultSet resultSet = statement.getGeneratedKeys();
+		if (resultSet.next()) {
+			article.setId(resultSet.getLong(1));
+		}
+	}
+	
+
+	// Eliminar artículo.
+	public void delete(Long id) throws Exception {
+		Connection connection = ConnectionManager.getConnection();
+		Statement statement = connection.createStatement();
+		
+		String query = "DELETE FROM article WHERE id = " + id;
+		statement.executeUpdate(query);
+	}
+
+	
+	// Actualizar artículo.
+	public void update(Article article) throws Exception {
+		Connection connection = ConnectionManager.getConnection();
+		String query = "UPDATE article SET title = ?, author = ?, price = ?, image = ? WHERE id = ?";
+		PreparedStatement statement = connection.prepareStatement(query);
+		
+		statement.setString(1, article.getTitle());
+		statement.setString(2, article.getAuthor());
+		statement.setFloat(3, article.getPrice());
+		statement.setString(4, article.getImage());
+		statement.setLong(5, article.getId());
+		statement.execute();
 	}
 }

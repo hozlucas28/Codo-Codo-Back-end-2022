@@ -24,10 +24,10 @@ public class Article {
 	/* -------------------------------- Atributos ------------------------------- */
 
 	private Long id;
-	private String image;
 	private String title;
 	private String author;
 	private float price;
+	private String image;
 	
 
 	/* --------------------------------- Métodos -------------------------------- */
@@ -72,11 +72,7 @@ public class Article {
 		return image;
 	}
 	
-	public void showData() {
-		System.out.println("• ID: " + id);
-		System.out.println("• Título: " + title);
-		System.out.println("• Autor: " + author);
-		System.out.println("• Precio: " + price);
-		System.out.println("• Imagen: " + image);
+	public String getAttributes() {
+		return "Article [id=" + id + ", title=" + title + ", author=" + author + ", price=" + price + ", image=" + image + "]";
 	}
 }
