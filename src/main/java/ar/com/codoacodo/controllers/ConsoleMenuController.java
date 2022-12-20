@@ -15,6 +15,7 @@ package ar.com.codoacodo.controllers;
 import java.util.Scanner;
 
 public class ConsoleMenuController {
+
 	public static void main(String[] args) throws Exception {
 		// Menú de navegación
 		System.out.println("• Por favor seleccioné una opción:");
@@ -27,7 +28,7 @@ public class ConsoleMenuController {
 		@SuppressWarnings("resource")
 		Scanner keyword = new Scanner(System.in); // Comienza a capturar las entradas.
 		int optionSelected = -1;
-		
+
 		do {
 			optionSelected = keyword.nextInt(); // Guarda la interpretación de la entrada.
 			switch (optionSelected) {

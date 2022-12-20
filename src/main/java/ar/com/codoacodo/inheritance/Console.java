@@ -1,6 +1,7 @@
 package ar.com.codoacodo.inheritance;
 
 public class Console {
+
 	/* ------------------------------- Constructor ------------------------------ */
 
 	public Console(int bit, String name, String brand) {
@@ -9,13 +10,11 @@ public class Console {
 		this.brand = brand;
 	}
 
-
 	/* -------------------------------- Atributos ------------------------------- */
 
 	protected int bit;
 	private String name;
-	private String brand;	
-	
+	private String brand;
 
 	/* --------------------------------- Métodos -------------------------------- */
 

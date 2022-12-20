@@ -1,8 +1,9 @@
 package ar.com.codoacodo.domain;
 
 public class Article {
+
 	/* ------------------------------- Constructor ------------------------------ */
-	
+
 	// Constructor con argumento ID
 	public Article(Long id, String title, String author, float price, String image) {
 		this.id = id;
@@ -10,7 +11,7 @@ public class Article {
 		this.author = author;
 		this.price = price;
 		this.image = image;
-	}	
+	}
 
 	// Constructor sin argumento ID
 	public Article(String title, String author, float price, String image) {
@@ -18,8 +19,7 @@ public class Article {
 		this.author = author;
 		this.price = price;
 		this.image = image;
-	}	
-
+	}
 
 	/* -------------------------------- Atributos ------------------------------- */
 
@@ -28,7 +28,6 @@ public class Article {
 	private String author;
 	private float price;
 	private String image;
-	
 
 	/* --------------------------------- Métodos -------------------------------- */
 
@@ -47,7 +46,7 @@ public class Article {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	
+
 	public void setImage(String image) {
 		this.image = image;
 	}
@@ -67,11 +66,11 @@ public class Article {
 	public float getPrice() {
 		return price;
 	}
-	
+
 	public String getImage() {
 		return image;
 	}
-	
+
 	public String getAttributes() {
 		return "Article [id=" + id + ", title=" + title + ", author=" + author + ", price=" + price + ", image=" + image + "]";
 	}

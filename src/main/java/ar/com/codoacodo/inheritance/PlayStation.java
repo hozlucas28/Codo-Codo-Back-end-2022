@@ -18,18 +18,17 @@ import ar.com.codoacodo.inheritance.interfaces.IPlayable;
 import ar.com.codoacodo.inheritance.interfaces.IUpgradable;
 
 public class PlayStation extends Console implements IPlayable, IUpgradable {
+
 	/* ------------------------------- Constructor ------------------------------ */
-	
+
 	public PlayStation(int bit, String name, String version, String brand) {
 		super(bit, "PlayStation", "Sony");
 		this.version = version;
 	}
 
-
 	/* -------------------------------- Atributos ------------------------------- */
 
 	private String version;
-
 
 	/* --------------------------------- Métodos -------------------------------- */
 
@@ -38,9 +37,9 @@ public class PlayStation extends Console implements IPlayable, IUpgradable {
 	}
 
 	public String getAttributes() {
-		return  super.getAttributes() + " PlayStation [version=" + version + "]";
+		return super.getAttributes() + " PlayStation [version=" + version + "]";
 	}
-	
+
 	public void play() {
 		if (this.version == "4" || this.version == "5") {
 			System.out.println("Jugando a la PlayStation " + version + ".");
@@ -48,7 +47,7 @@ public class PlayStation extends Console implements IPlayable, IUpgradable {
 			System.out.println("No se puede jugar a la PlayStation " + version + ".");
 		}
 	}
-	
+
 	public void update() {
 		System.out.println("Actualizando PlayStation " + version + "...");
 		System.out.println("¡PlayStation actualizada!");

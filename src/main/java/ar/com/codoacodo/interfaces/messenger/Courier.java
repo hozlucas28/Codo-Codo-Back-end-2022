@@ -1,10 +1,10 @@
 package ar.com.codoacodo.interfaces.messenger;
 
 public class Courier {
+
 	/* -------------------------------- Atributos ------------------------------- */
 
 	private ISendMessage messenger;
-	
 
 	/* --------------------------------- Métodos -------------------------------- */
 
@@ -15,7 +15,7 @@ public class Courier {
 	public void setMessenger(ISendMessage messenger) {
 		this.messenger = messenger;
 	}
-	
+
 	public boolean isMessengerSeted() {
 		return this.messenger != null;
 	}

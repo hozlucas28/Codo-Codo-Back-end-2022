@@ -1,20 +1,17 @@
 package ar.com.codoacodo.seeker;
 
 public class Article {
+
 	/* ------------------------------- Constructor ------------------------------ */
 
-	public Article() {
-		
-	}
-	
-	
+	public Article() {}
+
 	/* -------------------------------- Atributos ------------------------------- */
 
 	private String title;
 	private String author;
 	private float price;
 	private String image;
-	
 
 	/* --------------------------------- Métodos -------------------------------- */
 

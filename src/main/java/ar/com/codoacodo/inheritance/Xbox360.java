@@ -17,15 +17,15 @@ package ar.com.codoacodo.inheritance;
 import ar.com.codoacodo.inheritance.interfaces.IUpgradable;
 
 public class Xbox360 extends Console implements IUpgradable {
+
 	/* ------------------------------- Constructor ------------------------------ */
 
 	public Xbox360() {
 		super(256, "Xbox 360", "Microsoft");
 	}
 
-
 	/* --------------------------------- Métodos -------------------------------- */
-	
+
 	public void update() {
 		System.out.println("Actualizando Xbox 360...");
 		System.out.println("¡Xbox 360 actualizada!");

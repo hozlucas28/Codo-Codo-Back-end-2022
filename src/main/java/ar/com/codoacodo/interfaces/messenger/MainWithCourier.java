@@ -1,12 +1,13 @@
 package ar.com.codoacodo.interfaces.messenger;
 
 public class MainWithCourier {
+
 	public static void main(String[] args) {
 		var courier = new Courier();
-		
+
 		String target = "B";
 		String message = "¡Hola Mundo!";
-		
+
 		switch (target) {
 			case "A":
 				courier.setMessenger(new SendEmailImpl());
@@ -20,9 +21,7 @@ public class MainWithCourier {
 			default:
 				System.out.println("¡LA OPCIÓN INGRESADA ES INVALIDA!");
 				break;
-		};
-		
-		if (courier.isMessengerSeted())
-			courier.initMessengerAction(message);
+		}
+		if (courier.isMessengerSeted()) courier.initMessengerAction(message);
 	}
 }
