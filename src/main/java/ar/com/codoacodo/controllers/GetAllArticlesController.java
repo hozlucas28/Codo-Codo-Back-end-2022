@@ -20,40 +20,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
-
-import ar.com.codoacodo.dao.IArticleDAO;
 import ar.com.codoacodo.dao.impl.ArticleDAOMySQLImpl;
 import ar.com.codoacodo.domain.Article;
 
+@SuppressWarnings("serial")
 @WebServlet("/GetAllArticlesController") // Ruta de acceso --> http://localhost:8080/webapp/GetAllArticlesController
 public class GetAllArticlesController extends HttpServlet {
-	// Aplicación de consola
-	public static void main(String[] args) throws Exception {
-		IArticleDAO dao = new ArticleDAOMySQLImpl();
-		List<Article> articles = dao.getAllArticles();
-
-		for (Article i : articles) {
-			System.out.println(i.getAttributes());
-		}
-	}
-
-	// Controlador - API ==> [Devuelve listado de artículos]
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		IArticleDAO dao = new ArticleDAOMySQLImpl();
+		var dao = new ArticleDAOMySQLImpl();
 		List<Article> articles = new ArrayList<>();
 
 		try {
 			articles = dao.getAllArticles();
-			
-			for (Article i : articles) {
-				System.out.println(i.getAttributes());
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		req.setAttribute("listado", articles);
-		getServletContext().getRequestDispatcher("/list.html").forward(req, resp);
+		// Redirigir al listado de artículos.
+		req.setAttribute("articles", articles); // Define la variable "articles".
+		getServletContext().getRequestDispatcher("/showArticles.jsp").forward(req, resp);
+	}
+	
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
 	}
 }

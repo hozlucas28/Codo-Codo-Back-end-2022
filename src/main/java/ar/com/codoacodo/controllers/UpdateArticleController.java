@@ -1,29 +1,55 @@
 package ar.com.codoacodo.controllers;
 
-import ar.com.codoacodo.dao.IArticleDAO;
-import ar.com.codoacodo.dao.impl.ArticleDAOMySQLImpl;
-import ar.com.codoacodo.domain.Article;
+import java.io.IOException;
 
-public class UpdateArticleController {
-	public static void main(String[] args) throws Exception {
-		Long id = 3l;
-		String title = "Titulo de Prueba - Actualizado";
-		String author = "Autor de Prueba - Actualizado";
-		Float price = 1234.56f;
-		String image = "Imagen de Prueba - Actualizado";
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import ar.com.codoacodo.dao.impl.ArticleDAOMySQLImpl;
+
+@SuppressWarnings("serial")
+@WebServlet("/UpdateArticleController") // Ruta de acceso --> http://localhost:8080/webapp/UpdateArticleController
+public class UpdateArticleController extends HttpServlet {	
+	// Cargar artículo en el .jsp para actualizar sus datos
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Long id = Long.parseLong(req.getParameter("id")); // Obtengo el ID.
 		
-		IArticleDAO dao = new ArticleDAOMySQLImpl();
-		var articleToUpdate = dao.getElementById(id);
+		try {
+			var dao = new ArticleDAOMySQLImpl();
+			var article = dao.getArticleById(id);
+			req.setAttribute("article", article);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		if(articleToUpdate != null) {
+		// Redirigir a actualizar artículo.
+		getServletContext().getRequestDispatcher("/updateArticle.jsp").forward(req, resp);		
+	}
+	
+	// Realiza la actualización del artículo
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Long id = Long.parseLong(req.getParameter("id")); // Obtiene el ID.
+		String title = req.getParameter("title"); // Obtiene el título.
+		String author = req.getParameter("author"); // Obtiene el autor.
+		Float price = Float.parseFloat(req.getParameter("price")); // Obtiene el precio.
+		String image = req.getParameter("image"); // Obtiene la imagen.
+		
+		try {
+			var dao = new ArticleDAOMySQLImpl();
+			var articleToUpdate = dao.getArticleById(id);
 			articleToUpdate.setTitle(title);
 			articleToUpdate.setAuthor(author);
 			articleToUpdate.setPrice(price);
 			articleToUpdate.setImage(image);
-			dao.update(articleToUpdate);
-			System.out.println(articleToUpdate.getAttributes());
-		} else {
-			System.out.println("El ID enviado no existe.");
+			dao.update(articleToUpdate); // Actualiza el artículo.
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		
+		// Redirigir al listado de artículos.
+		getServletContext().getRequestDispatcher("/GetAllArticlesController").forward(req, resp);
 	}
 }

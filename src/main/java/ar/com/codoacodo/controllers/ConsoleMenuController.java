@@ -14,11 +14,7 @@ package ar.com.codoacodo.controllers;
 
 import java.util.Scanner;
 
-import ar.com.codoacodo.dao.IArticleDAO;
-import ar.com.codoacodo.dao.impl.ArticleDAOMySQLImpl;
-import ar.com.codoacodo.domain.Article;
-
-public class CrudMain {
+public class ConsoleMenuController {
 	public static void main(String[] args) throws Exception {
 		// Menú de navegación
 		System.out.println("• Por favor seleccioné una opción:");
@@ -28,6 +24,7 @@ public class CrudMain {
 		System.out.println("[4] - Buscar artículo por ID");
 		System.out.println("[5] - Salir");
 
+		@SuppressWarnings("resource")
 		Scanner keyword = new Scanner(System.in); // Comienza a capturar las entradas.
 		int optionSelected = -1;
 		

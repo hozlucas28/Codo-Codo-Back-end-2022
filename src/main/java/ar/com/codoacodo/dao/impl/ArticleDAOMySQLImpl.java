@@ -24,7 +24,7 @@ import ar.com.codoacodo.db.ConnectionManager;
 
 public class ArticleDAOMySQLImpl implements IArticleDAO {
 	// Devolver artículo con la ID enviada.
-	public Article getElementById(Long id) throws Exception {
+	public Article getArticleById(Long id) throws Exception {
 		
 		// Establecer conexión
 		Connection connection = ConnectionManager.getConnection();
@@ -40,6 +40,22 @@ public class ArticleDAOMySQLImpl implements IArticleDAO {
 			article = fromResultSetToArticle(resultSet);
 		}
 		return article;
+	}
+
+
+	// Devolver los artículos que tengan el título enviado.
+	public List<Article> getArticlesByTitle(String key) throws Exception {
+		Connection connection = ConnectionManager.getConnection();
+		Statement statement = connection.createStatement();
+
+		String query = "SELECT * FROM article WHERE title=" + "'" + key + "'";
+		ResultSet resultSet = statement.executeQuery(query);
+
+		List<Article> articles = new ArrayList<>();
+		while (resultSet.next()) {
+			articles.add(fromResultSetToArticle(resultSet));
+		}
+		return articles;
 	}
 
 

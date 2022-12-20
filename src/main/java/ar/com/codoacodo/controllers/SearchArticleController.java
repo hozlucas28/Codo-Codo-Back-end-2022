@@ -11,6 +11,8 @@
 package ar.com.codoacodo.controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,23 +24,22 @@ import ar.com.codoacodo.dao.impl.ArticleDAOMySQLImpl;
 import ar.com.codoacodo.domain.Article;
 
 @SuppressWarnings("serial")
-@WebServlet("/CreateArticleController") // Ruta de acceso --> http://localhost:8080/webapp/CreateArticleController
-public class CreateArticleController extends HttpServlet {
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String title = req.getParameter("title"); // Obtiene el título.
-		String author = req.getParameter("author"); // Obtiene el autor.
-		Float price = Float.parseFloat(req.getParameter("price")); // Obtiene el precio.
-		String image = req.getParameter("image"); // Obtiene la imagen.
+@WebServlet("/SearchArticleController") // Ruta de acceso --> http://localhost:8080/webapp/SearchArticleController
+public class SearchArticleController extends HttpServlet {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String searchKey = req.getParameter("searchKey"); // Obtiene la clave de búsqueda.
 		
+		var dao = new ArticleDAOMySQLImpl();
+		List<Article> articles = new ArrayList<>();
+
 		try {
-			var dao = new ArticleDAOMySQLImpl();		
-			var newArticle = new Article(title, author, price, image);
-			dao.create(newArticle);
+			articles = dao.getArticlesByTitle(searchKey);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		// Redirigir al listado de artículos.
-		getServletContext().getRequestDispatcher("/GetAllArticlesController").forward(req, resp);
+		req.setAttribute("articles", articles); // Define la variable "articles".
+		getServletContext().getRequestDispatcher("/showArticles.jsp").forward(req, resp);
 	}
 }
