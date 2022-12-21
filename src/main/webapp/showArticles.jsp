@@ -11,9 +11,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Curso de Codo a Codo - Full Stack Java, lado Back-end." />
-		<meta name="keywords" content="Codo a Codo - Full Stack Java, Back-end, HTML, Java, MySQL, Listado de artÃ­culos" />
+		<meta name="keywords" content="Codo a Codo - Full Stack Java, Back-end, HTML, Java, MySQL, Listado de artículos" />
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
-		<title>Codo a Codo - Java (Listado de artÃ­culos)</title>
+		<title>Codo a Codo - Java (Listado de artículos)</title>
 	</head>
 <body>
 	<!-- ------------------------- MenÃº de NavegaciÃ³n -------------------------- -->
@@ -24,16 +24,16 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h2 class="mt-4">Listado de ArtÃ­culos:</h2>
-					<table class="table mt-3">
+					<h2 class="mt-4">Listado de Artículos:</h2>
+					<table class="table table-hover mt-3">
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">TÃ­tulo</th>
+								<th scope="col">Título</th>
 								<th scope="col">Autor</th>
 								<th scope="col">Precio</th>
 								<th scope="col">Imagen</th>
-								<th scope="col">&nbsp;</th>
+								<th scope="col"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -44,7 +44,7 @@
 									total += article.getPrice();
 							%>
 							<tr>
-								<th scope="row"><%= article.getId() %></th>
+								<td class="fw-bold"><%= article.getId() %></td>
 								<td><%= article.getTitle() %></td>
 								<td><%= article.getAuthor() %></td>
 								<td><%= article.getPrice() %></td>
@@ -60,8 +60,9 @@
 						</tbody>
 						<tfoot>
 							<tr>
-								<td colspan="2" align="right">Total $</td>
-								<td colspan="4"><%= total %></td>
+								<td colspan="3"></td>
+								<td class="fw-bold">Total: <span class="fw-normal">$<%= total %></span></td>
+								<td colspan="2"></td>
 							</tr>
 						</tfoot>
 					</table>
@@ -78,10 +79,10 @@
 			<form action="<%= request.getContextPath() %>/DeleteArticleController">
 			<input type="hidden" name="id" id="id">
 				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar ArtÃ­culo</h1>
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Artículo</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-				<div class="modal-body">Â¿Desea eliminar el artÃ­culo?</div>
+				<div class="modal-body">Â¿Desea eliminar el artículo?</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 					<button type="submit" class="btn btn-danger">Eliminar</button>
