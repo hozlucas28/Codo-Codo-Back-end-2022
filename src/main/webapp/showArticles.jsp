@@ -82,7 +82,7 @@
 					<h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Artículo</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-				<div class="modal-body">Â¿Desea eliminar el artículo?</div>
+				<div class="modal-body">¿Desea eliminar el artículo?</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
 					<button type="submit" class="btn btn-danger">Eliminar</button>
