@@ -4,7 +4,7 @@
  *
  *
  * IMPORTANTE:
- *  			  - <resultSet.next()> = apunta a la columna siguiente,
+ *  			  - <resultSet.next()> = apunta a la columna/registro siguiente,
  *										 devolviendo 'false' si ha terminado
  *										 su recorrido.
 -------------------------------------------------------------------------- */
