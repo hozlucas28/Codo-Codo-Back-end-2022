@@ -23,7 +23,7 @@
     Summary
 </h2>
 <p>
-    This is a repository where I store all lessons that I take on <a href="https://www.buenosaires.gob.ar/educacion/codo-codo" target="_blank">Codo a Codo - Full Stack Java<a> Back-end course, related with Java language. As a learning, we make an application where you manage articles. In addition, I used npm packages like: <a href="https://prettier.io/" target="_blank">Prettier</a> and <a href="https://github.com/typicode/husky" target="_blank">Husky</a> to made my code be more 'prettier'.
+    This is a repository where I store all lessons that I take on <a href="https://www.buenosaires.gob.ar/educacion/codo-codo" target="_blank">Codo a Codo - Full Stack Java<a> Back-end course, related with Java language. As a learning, we make an application where you manage articles. In addition, I used npm packages like: <a href="https://prettier.io/" target="_blank">Prettier</a> and <a href="https://github.com/typicode/husky" target="_blank">Husky</a> to make my code be more 'prettier'.
 </p>
 
 <h2>
