@@ -49,10 +49,10 @@
             <a href="https://github.com/hozlucas28/Codo-Codo-Front-end-2022" target="_blank">Repository of Front-end course</a>
         </li>
         <li>
-            <a href="https://github.com/hozlucas28/Codo-Codo-Front-end-Practice-2022" target="_blank">Repository of Front-end practice</a>
+            <a href="https://github.com/hozlucas28/Codo-Codo-Front-end-Project-2022" target="_blank">Repository of Front-end project</a>
         </li>
         <li>
-            <a href="https://github.com/hozlucas28/Codo-Codo-Back-end-Practice-2022" target="_blank">Repository of Back-end practice</a>
+            <a href="https://github.com/hozlucas28/Codo-Codo-Back-end-Project-2022" target="_blank">Repository of Back-end project</a>
         </li>
     </ul>
 </p>
