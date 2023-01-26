@@ -3,7 +3,7 @@
 </h1>
 
 <h4 align="center">
-    Repository of <a href="https://www.buenosaires.gob.ar/educacion/codo-codo" target="_blank">Codo a Codo - Full Stack Java<a> Back-end course.
+    Repository of <a href="https://inscripcionesagencia.bue.edu.ar/codoacodo" target="_blank">Codo a Codo - Full Stack Java<a> Back-end course.
 </h4>
 
 <p align="center">
@@ -23,7 +23,7 @@
     Summary
 </h2>
 <p>
-    This is a repository where I store all lessons that I take on <a href="https://www.buenosaires.gob.ar/educacion/codo-codo" target="_blank">Codo a Codo - Full Stack Java<a> Back-end course, related with Java language. As a learning, we make an application where you manage articles. In addition, I used npm packages like: <a href="https://prettier.io/" target="_blank">Prettier</a> and <a href="https://github.com/typicode/husky" target="_blank">Husky</a> to make my code be more 'prettier'.
+    This is a repository where I store all lessons that I take on <a href="https://inscripcionesagencia.bue.edu.ar/codoacodo" target="_blank">Codo a Codo - Full Stack Java<a> Back-end course, related with Java language. As a learning, we make an application where you manage articles. In addition, I used npm packages like: <a href="https://prettier.io/" target="_blank">Prettier</a> and <a href="https://github.com/typicode/husky" target="_blank">Husky</a> to make my code be more 'prettier'.
 </p>
 
 <h2>
@@ -68,7 +68,7 @@
     Acknowledgments
 </h2>
 <p>
-    Thanks to <a href="https://www.buenosaires.gob.ar/educacion/codo-codo" target="_blank">Codo a Codo</a> teachers to share this lessons and others ones.
+    Thanks to <a href="https://inscripcionesagencia.bue.edu.ar/codoacodo" target="_blank">Codo a Codo</a> teachers to share this lessons and others ones.
 </p>
 
 <h2>
